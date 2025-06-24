@@ -1,0 +1,439 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    align-items: start;
+}
+
+/* Game Card */
+.game-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 500px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #6B7280;
+    font-size: 1.1rem;
+}
+
+/* Game Modes */
+.game-modes {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.mode-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #E5E7EB;
+    background: white;
+    color: #6B7280;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.mode-btn:hover {
+    border-color: #3B82F6;
+    color: #3B82F6;
+}
+
+.mode-btn.active {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    color: white;
+    border-color: #3B82F6;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Game Info */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #F9FAFB;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+}
+
+.current-player {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.player-indicator {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.player-indicator.player-o {
+    background: linear-gradient(135deg, #EF4444, #DC2626);
+}
+
+.game-status {
+    font-weight: 500;
+    color: #6B7280;
+}
+
+/* Game Board */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: #E5E7EB;
+    padding: 0.5rem;
+    border-radius: 16px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cell.x {
+    color: #10B981;
+    background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
+}
+
+.cell.o {
+    color: #EF4444;
+    background: linear-gradient(135deg, #FEE2E2, #FECACA);
+}
+
+.cell.winning {
+    animation: winningCell 0.6s ease-in-out;
+}
+
+@keyframes winningCell {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.cell.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Game Controls */
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+    color: white;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn-reset:hover {
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.btn-new-game {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-new-game:hover {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-play-again {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    font-size: 1.1rem;
+    padding: 1.25rem 2rem;
+}
+
+.btn-play-again:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+/* Game Overlay */
+.game-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.game-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.game-overlay.show .overlay-content {
+    transform: scale(1);
+}
+
+.winner-announcement {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1F2937;
+}
+
+.winner-announcement.winner-x {
+    color: #10B981;
+}
+
+.winner-announcement.winner-o {
+    color: #EF4444;
+}
+
+.winner-announcement.draw {
+    color: #6B7280;
+}
+
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 80px;
+    height: 80px;
+    top: 70%;
+    right: 10%;
+    animation-delay: 2s;
+    transform: rotate(45deg);
+}
+
+.shape-3 {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    bottom: 20%;
+    left: 60%;
+    animation-delay: 4s;
+}
+
+.shape-4 {
+    width: 90px;
+    height: 90px;
+    top: 30%;
+    right: 30%;
+    animation-delay: 6s;
+    transform: rotate(45deg);
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .stats-card {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .difficulty-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .game-card {
+        min-width: auto;
+        padding: 2rem;
+    }
+    
+    .cell {
+        font-size: 2.5rem;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+    }
+    
+    .game-modes {
+        flex-direction: column;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-card {
+        padding: 1.5rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .cell {
+        font-size: 2rem;
+    }
+    
+    .overlay-content {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .winner-announcement {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <div class="header">
+                <h1>Tic-Tac-Toe</h1>
+                <p>Get three in a row to win!</p>
+            </div>
+            
+            <div class="game-modes">
+                <button class="mode-btn active" id="pvpMode">Player vs Player</button>
+                <button class="mode-btn" id="aiMode">Player vs AI</button>
+            </div>
+            
+            <div class="game-info">
+                <div class="current-player">
+                    <span class="player-label">Current Player:</span>
+                    <span class="player-indicator" id="currentPlayer">X</span>
+                </div>
+                <div class="game-status" id="gameStatus">Make your move!</div>
+            </div>
+            
+            <div class="game-board" id="gameBoard">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn btn-reset" id="resetBtn">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">Reset Game</span>
+                </button>
+                <button class="btn btn-new-game" id="newGameBtn">
+                    <span class="btn-icon">🎮</span>
+                    <span class="btn-text">New Game</span>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="background-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+    </div>
+    
+    <div class="game-overlay" id="gameOverlay">
+        <div class="overlay-content">
+            <div class="winner-announcement" id="winnerAnnouncement"></div>
+            <button class="btn btn-play-again" id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

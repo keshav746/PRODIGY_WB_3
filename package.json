@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe-game",
+  "version": "1.0.0",
+  "description": "Interactive tic-tac-toe web application with AI opponent",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/",
+    "start": "live-server --port=3000 --open=/"
+  },
+  "keywords": [
+    "tic-tac-toe",
+    "game",
+    "web-application",
+    "javascript",
+    "ai-opponent"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
